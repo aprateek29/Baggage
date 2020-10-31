@@ -1,0 +1,17 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+{% load socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+
+    <form method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="Login">
+    </form>
+    
+    <a href="{% provider_login_url 'google' %}">Login with Google</a> 
+</div>
+{% endblock content %}
