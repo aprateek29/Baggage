@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # my_apps
     'accounts',
     'pages',
+    'app'
 ]
 
 MIDDLEWARE = [
