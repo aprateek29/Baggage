@@ -15,7 +15,7 @@
 Just Fork The Repo!
 
 
-**Screenshots are available**
+**HTML & CSS Template**
 https://drive.google.com/drive/folders/1my-NRhyzfYccflVYCKy-OBGWUYoC9t5v?usp=sharing
 
 
