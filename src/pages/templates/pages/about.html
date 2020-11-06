@@ -8,12 +8,12 @@
                 <!-- nav -->
                 <div class="top-w3pvt d-flex">
                     <div id="logo">
-                        <h1> <a href="index.html"><span class="log-w3pvt">B</span>aggage</a> <label class="sub-des">Online Store</label></h1>
+                        <h1> <a href="{% url 'index' %}"><span class="log-w3pvt">B</span>aggage</a> <label class="sub-des">Online Store</label></h1>
                     </div>
 
                     <div class="forms ml-auto">
-                        <a href="login.html" class="btn"><span class="fa fa-user-circle-o"></span> Sign In</a>
-                        <a href="register.html" class="btn"><span class="fa fa-pencil-square-o"></span> Sign Up</a>
+                        <a href="{% url 'signup' %}" class="btn"><span class="fa fa-user-circle-o"></span> Sign In</a>
+                        <a href="{% url 'login' %}" class="btn"><span class="fa fa-pencil-square-o"></span> Sign Up</a>
                     </div>
                 </div>
                 <div class="nav-top-wthree">
@@ -21,26 +21,14 @@
                         <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
                         <input type="checkbox" id="drop" />
                         <ul class="menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active"><a href="about.html">About Us</a></li>
-                            <li>
-                                <!-- First Tier Drop Down -->
-                                <label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
-                                </label>
-                                <a href="#">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
-                                <input type="checkbox" id="drop-2" />
-                                <ul>
-                                    <li><a href="coming.html" class="drop-text">Services</a></li>
-                                    <li><a href="about.html" class="drop-text">Features</a></li>
-                                    <li><a href="single.html" class="drop-text">Single Page</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="shop.html">Collections</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li class="active"><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'shop' %}">Shop</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
                         </ul>
                     </nav>
                     <!-- //nav -->
-                    <div class="search-form ml-auto">
+                    <div style="visibility: hidden;" class="search-form ml-auto">
                         <div class="form-w3layouts-grid">
                             <form action="#" method="post" class="newsletter">
                                 <input class="search" type="search" placeholder="Search here..." required="">
@@ -68,7 +56,7 @@
                 <div class="col-lg-6 ab-info-con ab-inf-page text-left">
                     <h4>About Our Baggage</h4>
                     <p>Lorem ipsum dolor sit,Nulla pellentesque dolor ipsum laoreet eleifend integer,Pellentesque maximus libero.Lorem ipsum dolor sit,Nulla pellentesque dolor ipsum laoreet eleifend integer,Pellentesque maximus libero.</p>
-                    <a href="single.html" class="btn shop mt-4">Read More</a>
+                    <a href="#" class="btn shop mt-4">Read More</a>
                 </div>
             </div>
             <div class="row grids-wthree-info text-center">
@@ -105,7 +93,7 @@
                 <div class="col-md-4 ab-content text-center p-lg-5 p-3 my-lg-5">
                     <h4>Travel Must Haves</h4>
                     <p>Lorem ipsum dolor sit,Nulla pellentesque dolor ipsum laoreet eleifend integer,Pellentesque maximus libero.</p>
-                    <a href="shop.html" class="btn shop mt-3">Shop Now</a>
+                    <a href="{% url 'shop' %}" class="btn shop mt-3">Shop Now</a>
 
                 </div>
             </div>
@@ -126,7 +114,7 @@
                 <div class="col-md-4 content-gd-wthree ab-content py-lg-5 my-lg-5">
                     <h4>Need Extra Space ?</h4>
                     <p>Lorem ipsum dolor sit,Nulla pellentesque dolor ipsum laoreet eleifend integer,Pellentesque maximus libero.</p>
-                    <a href="shop.html" class="btn shop mt-3">Shop Now</a>
+                    <a href="{% url 'shop' %}" class="btn shop mt-3">Shop Now</a>
 
                 </div>
                 <div class="col-md-4 content-gd-wthree">
@@ -144,14 +132,14 @@
                 <img src="{% static 'pages/images/ab1.jpg' %}" class="img-fluid" alt="" />
                 <div class="pos-wthree">
                     <h4 class="text-wthree">50% Off Any <br> Women's Bags</h4>
-                    <a href="shop.html" class="btn shop mt-3">Shop Now</a>
+                    <a href="{% url 'shop' %}" class="btn shop mt-3">Shop Now</a>
                 </div>
             </div>
             <div class="col-lg-6 bottom-w3pvt-left bottom-w3pvt-right p-lg-0">
                 <img src="{% static 'pages/images/ab2.jpg' %}" class="img-fluid" alt="" />
                 <div class="pos-w3pvt">
                     <h4 class="text-w3pvt">30% Off Any <br> Men's Bags</h4>
-                    <a href="shop.html" class="btn shop mt-3">Shop Now</a>
+                    <a href="{% url 'shop' %}" class="btn shop mt-3">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -161,7 +149,8 @@
     <!--/newsletter -->
     <section class="newsletter-w3pvt py-5">
         <div class="container py-md-5">
-            <form method="post" action="#">
+            <form method="post" action="/newsletter/">
+                {% csrf_token %}
                 <p class="text-center">Subscribe to the Handbags Store mailing list to receive updates on new arrivals, special offers and other discount information.</p>
                 <div class="row subscribe-sec">
                     <div class="col-md-9">

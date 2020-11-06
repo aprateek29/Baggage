@@ -4,6 +4,7 @@
 
 {% include 'pages/header.html' %}
 
+
     <!--/banner-bottom -->
     <section class="banner-bottom py-5">
         <div class="container py-md-3">
@@ -41,7 +42,7 @@
                 <div class="col-md-4 ab-content text-center p-lg-5 p-3 my-lg-5">
                     <h4>Travel Must Haves</h4>
                     <p>Lorem ipsum dolor sit,Nulla pellentesque dolor ipsum laoreet eleifend integer,Pellentesque maximus libero.</p>
-                    <a href="shop.html" class="btn shop mt-3">Shop Now</a>
+                    <a href="{% url 'shop' %}" class="btn shop mt-3">Shop Now</a>
 
                 </div>
             </div>
@@ -62,7 +63,7 @@
                 <div class="col-md-4 content-gd-wthree ab-content py-lg-5 my-lg-5">
                     <h4>Need Extra Space ?</h4>
                     <p>Lorem ipsum dolor sit,Nulla pellentesque dolor ipsum laoreet eleifend integer,Pellentesque maximus libero.</p>
-                    <a href="shop.html" class="btn shop mt-3">Shop Now</a>
+                    <a href="{% url 'shop' %}" class="btn shop mt-3">Shop Now</a>
 
                 </div>
                 <div class="col-md-4 content-gd-wthree">
@@ -80,14 +81,14 @@
                 <img src="{% static 'pages/images/ab1.jpg' %}" class="img-fluid" alt="" />
                 <div class="pos-wthree">
                     <h4 class="text-wthree">50% Off Any <br> Women's Bags</h4>
-                    <a href="shop.html" class="btn shop mt-3">Shop Now</a>
+                    <a href="{% url 'shop' %}" class="btn shop mt-3">Shop Now</a>
                 </div>
             </div>
             <div class="col-lg-6 bottom-w3pvt-left bottom-w3pvt-right p-lg-0">
                 <img src="{% static 'pages/images/ab2.jpg' %}" class="img-fluid" alt="" />
                 <div class="pos-w3pvt">
                     <h4 class="text-w3pvt">30% Off Any <br> Men's Bags</h4>
-                    <a href="shop.html" class="btn shop mt-3">Shop Now</a>
+                    <a href="{% url 'shop' %}" class="btn shop mt-3">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -103,7 +104,7 @@
                 <div class="col-lg-4 gallery-content-info text-center mt-lg-5">
                     <h3 class="title-wthree mb-lg-5 mb-4">Trending Now </h3>
                     <p>Lorem ipsum dolor sit,Nulla pellentesque dolor ipsum laoreet eleifend integer,Pellentesque maximus libero.</p>
-                    <a href="shop.html" class="btn shop mt-3">Shop Now</a>
+                    <a href="{% url 'shop' %}" class="btn shop mt-3">Shop Now</a>
 
                 </div>
                 <div class="col-lg-8 gallery-content">
@@ -164,7 +165,8 @@
     <!--/newsletter -->
     <section class="newsletter-w3pvt py-5">
         <div class="container py-md-5">
-            <form method="post" action="#">
+            <form method="post" action="newsletter/">
+                {% csrf_token %}
                 <p class="text-center">Subscribe to the Handbags Store mailing list to receive updates on new arrivals, special offers and other discount information.</p>
                <div class="row subscribe-sec">
                     <div class="col-md-9">

@@ -1,4 +1,10 @@
 {% load static %}
+
+{% if messages %}
+{% for message in messages %}
+<div style="text-align: center; height: 25px; padding-top: 5px; padding-bottom: 5px;">{{message}}</div>
+        {% endfor %}
+    {% endif %}
 <div class="main-sec">
     <!-- //header -->
     <header class="py-sm-3 pt-3 pb-2" id="home">
@@ -6,12 +12,12 @@
             <!-- nav -->
             <div class="top-w3pvt d-flex">
                 <div id="logo">
-                    <h1> <a href="index.html"><span class="log-w3pvt">B</span>aggage</a> <label class="sub-des">Online Store</label></h1>
+                    <h1> <a href="{% url 'index' %}"><span class="log-w3pvt">B</span>aggage</a> <label class="sub-des">Online Store</label></h1>
                 </div>
 
                 <div class="forms ml-auto">
-                    <a href="login.html" class="btn"><span class="fa fa-user-circle-o"></span> Sign In</a>
-                    <a href="register.html" class="btn"><span class="fa fa-pencil-square-o"></span> Sign Up</a>
+                    <a href="{% url 'login' %}" class="btn"><span class="fa fa-user-circle-o"></span> Sign In</a>
+                    <a href="{% url 'signup' %}" class="btn"><span class="fa fa-pencil-square-o"></span> Sign Up</a>
                 </div>
             </div>
             <div class="nav-top-wthree">
@@ -19,28 +25,14 @@
                     <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
                     <input type="checkbox" id="drop" />
                     <ul class="menu">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li>
-                            <!-- First Tier Drop Down -->
-                            <label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
-                            </label>
-                            <a href="#">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
-                            <input type="checkbox" id="drop-2" />
-                            <ul>
-                                <li><a href="coming.html" class="drop-text">Services</a></li>
-                                <li><a href="about.html" class="drop-text">Features</a></li>
-                                <li><a href="single.html" class="drop-text">Single Page</a></li>
-
-                            </ul>
-                        </li>
-
-                        <li><a href="shop.html">Collections</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li class="active"><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="{% url 'shop' %}">Shop</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
                     </ul>
                 </nav>
                 <!-- //nav -->
-                <div class="search-form ml-auto">
+                <div style="visibility: hidden;" class="search-form ml-auto">
                     <div class="form-w3layouts-grid">
                         <form action="#" method="post" class="newsletter">
                             <input class="search" type="search" placeholder="Search here..." required="">
@@ -58,7 +50,7 @@
         <div class="row">
             <div class="col-lg-5 banner-left-info">
                 <h3>The Largest Range <span>of HandBags</span></h3>
-                <a href="shop.html" class="btn shop">Shop Now</a>
+                <a href="{% url 'shop' %}" class="btn shop">Shop Now</a>
             </div>
 
             <div class="col-lg-7 banner-img">
